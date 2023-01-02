@@ -91,11 +91,14 @@ let totalMonths = finances.length;
 let netTotal = 0;
 let changes = [];
 let totalChange = 0;
+
+// Looping through all the months
 for (let i = 0; i < finances.length; i++) {
     
     netTotal += finances[i][1];
 
     if (i > 0) {
+        // Finding the monthly changes
         let change = finances[i][1] - finances[i - 1][1];
         totalChange += change;
         changes.push(change)
@@ -111,8 +114,18 @@ let minMonth = finances[indexMin][0]
 
 console.log("Financial Analysis ")
 console.log("--------------------------------------------")
+
+// The total number of months included in the dataset.
 console.log("Total Months " + totalMonths)
+
+// The net total amount of Profit/Losses over the entire period.
 console.log("Net Total $" + netTotal)
+
+// The average changes in Profit/Losses over the entire period.
 console.log("Average Change $" + (totalChange/(finances.length - 1)).toFixed(2))
+
+// The Greatest Increase in Profits
 console.log("Greatest Increase in Profit " + maxMonth + " ($" + greatestIncrease + ")")
+
+// The Greatest Decrease in Profits
 console.log("Greatest Decrease in Profit " + minMonth + " ($" + greatestDecrease + ")")
